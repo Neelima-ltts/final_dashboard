@@ -1,0 +1,300 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <style>
+#leftToRight{
+  animation: run ease 3s;
+  -webkit-animation: run ease 3s;
+  -moz-animation: run ease 3s;
+  -o-animation: run ease 3s;
+  -ms-animation: run ease 3s;
+}   
+
+@keyframes run {
+  0% { margin-left: -39%;}
+  100%{ margin-left: 36%;}
+}
+
+@-moz-keyframes run {
+  0% { margin-left: -98%;}
+  100%{ margin-left: 0%;}
+}
+
+@-webkit-keyframes run {
+  0% { margin-left: -98%;}
+  100%{ margin-left: 0%;}
+}
+
+@-o-keyframes run {
+  0% { margin-left: -98%;}
+  100%{ margin-left: 0%;}
+}
+
+@-ms-keyframes run {
+  0% { margin-left: -98%;}
+  100%{ margin-left: 0%;}
+}
+.myDiv1
+{
+    border: 1px solid black;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  margin-right: 0px;
+  margin-left: 305px;
+  background-color: rgb(192, 192, 192);
+  text-align: left;
+  height:550px;
+    width:60%;
+    
+}
+
+ 
+#myDiv2
+{
+    border: 1px solid black;
+  margin-top: 15px;
+  margin-bottom: 10px;
+  margin-right: 0px;
+  margin-left: 15px;
+  background-color: rgb(128, 128, 255);
+  float:left;
+  height:515px;
+    width:55%;
+}
+#map
+{
+    border: 1px solid black;
+  margin-top: 85px;
+  margin-bottom: 10px;
+  margin-right: 35px;
+  margin-left: px;
+  background-color: white;
+  float:right;
+  height:350px;
+    width:35%;
+}
+ 
+ h1 {text-align: center;}
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 60%;
+}
+table.center {
+  margin-left: auto; 
+  margin-right: auto;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+table.center {
+  margin-left: auto; 
+  margin-right: auto;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+h3 {
+  text-align: right;
+}
+
+body {
+  background-image: url('https://images.unsplash.com/photo-1524522173746-f628baad3644?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1103&q=80.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100% 100%;
+}
+
+
+.button {
+  background-color: #f4511e;
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-align: center;
+  font-size: 16px;
+  margin: 4px 2px;
+  opacity: 0.6;
+  transition: 0.3s;
+  display: inline-block;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+
+
+
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: Black;
+}
+
+li {
+  float: center;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover:not(.active) {
+  background-color: #111;
+}
+
+.active {
+  background-color: #5827e0;
+}
+
+.btn-group button {
+  background-color: #04AA6D; /* Green background */
+  border: 1px solid green; /* Green border */
+  color: white; /* White text */
+  padding: 10px 24px; /* Some padding */
+  cursor: pointer; /* Pointer/hand icon */
+  float: left; /* Float the buttons side by side */
+}
+
+/* Clear floats (clearfix hack) */
+.btn-group:after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.btn-group button:not(:last-child) {
+  border-right: none; /* Prevent double borders */
+}
+
+/* Add a background color on hover */
+.btn-group button:hover {
+  background-color: #3e8e41;
+}
+</style>
+ <script>
+      // Initialize and add the map
+      function initMap() {
+        // The location of Uluru
+        const uluru = { lat: 12.29791, lng: 76.63925};
+        // The map, centered at Uluru
+        const map = new google.maps.Map(document.getElementById("map"), {
+          zoom: 12,
+          center: uluru,
+        });
+        // The marker, positioned at Uluru
+        const marker = new google.maps.Marker({
+          position: uluru,
+          map: map,
+        });
+      }
+    </script>
+    
+       <SCRIPT>
+function ShowAndHide() {
+    var x = document.getElementById('SectionName');
+    if (x.style.display == 'none') {
+        x.style.display = 'block';
+    } else {
+        x.style.display = 'none';
+    }
+}
+</SCRIPT>
+
+
+<style>
+img {
+
+  margin-top: 85px;
+  margin-left: 190px;
+  margin-right: 0px;
+   margin-bottom: 30px;
+}
+</style>
+
+</head>
+<body>
+<div class="container">
+  <ul>
+        <li><a class="center" >DASHBOARD</a></li> 
+        </ul>       
+  <table  class="center">
+  
+    <thead>
+    <tr>
+        <th>HULLID</th>
+        <th>BOAT_ID</th>
+          <th>NO OF ENGINES</th>
+        <th>STATUS</th>
+        <th>VIEW</th>
+      
+      </tr>
+    </thead>
+    <tbody>
+      <tr th:each="boatessentials: ${boatessentialslist}">
+					<td th:text="${boatessentials.hullid}">HULL ID</td>
+					<td th:text="${boatessentials.boatid}">BOAT_ID</td>
+					<td th:text="${boatessentials.noofengine}">NO OF ENGINES</td>
+					<td th:text="${boatessentials.status}">STATUS</td>
+					<td> <button ONCLICK="ShowAndHide()">VIEW</button></button> </td>
+	</tr>
+    </tbody>
+  </table>
+  
+  
+  <div class="myDiv1">  
+  
+  
+  
+  <div id="myDiv2">
+
+<DIV ID="SectionName" STYLE="display:none"  class="btn-group" >
+
+
+
+
+<form method="get" action="/boatenginelist">
+    <button type="submit" style="width:25%">BOATENGINE</button>
+</form>
+<form method="get" action="/boateventlist">
+    <button type="submit" style="width:25%">BOATEVENT</button>
+</form>
+<form method="get" action="/boatloglist">
+    <button type="submit" style="width:25%">BOATLOG</button>
+</form>
+<form method="get" action="/boatsensorlist">
+    <button type="submit" style="width:25%">BOATSENSOR</button>
+</form>
+
+<div id="leftToRight">
+
+<a href="https://www.animatedimages.org/cat-boats-1002.htm"><img src="https://www.animatedimages.org/data/media/1002/animated-boat-image-0004.gif" border="0" alt="animated-boat-image-0004" /></a></div>
+
+</DIV>
+
+
+      </div>
+  
+
+  
+  <div id="map">
+ 
+      </div>
+      <script src="https://maps.googleapis.com/maps/api/js?key=&callback=initMap&libraries=&v=weekly"
+      async></script>  
+
+</div>
+</body>
+</html>	

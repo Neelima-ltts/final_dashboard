@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <style>
+ 
+
+ h1 {text-align: center;}
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 60%;
+}
+table.center {
+  margin-left: auto; 
+  margin-right: auto;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+table.center {
+  margin-left: auto; 
+  margin-right: auto;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+body {
+  background-image: url('https://images.unsplash.com/photo-1524522173746-f628baad3644?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1103&q=80.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100% 100%;
+}
+
+.button {
+  background-color: #f4511e;
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-align: center;
+  font-size: 16px;
+  margin: 4px 2px;
+  opacity: 0.6;
+  transition: 0.3s;
+  display: inline-block;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.button:hover {opacity: 1}
+.button {
+  position: absolute;
+  left: 450px;
+  top: 320px;
+}
+.button1 {
+  background-color: #f4511e;
+  border: none;
+  color: white;
+  padding: 16px 25px;
+  text-align: center;
+  font-size: 16px;
+  margin: 4px 1px;
+  opacity: 0.6;
+  transition: 0.3s;
+  display: inline-block;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.button1:hover {opacity: 1}
+.button1 {
+  position: absolute;
+  left: 450px;
+  top: 450px;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: Black;
+}
+
+li {
+  float: center;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover:not(.active) {
+  background-color: #111;
+}
+
+.active {
+  background-color: #5827e0;
+}
+</style>
+<script>
+function goBack() {
+  window.history.back();
+}
+</script>
+</head>
+<body>
+<div class="container">
+  <ul>
+        <li><a class="center" >DASHBOARD</a></li>
+        <button onclick="goBack()" >HOME</button> 
+        </ul>       
+  <table  class="center">
+  
+    <thead>
+      <tr>
+        <th>LOCATION_ID</th>
+        <th>HULLID</th>
+        <th>LATITUDE</th>
+         <th>LONGITUDE</th>
+        <th>ALTITUDE</th>
+        <th>HEADING</th>
+        <th>TIMESTAMP</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr th:each="boatlocation: ${boatlocationlist}">
+					<td th:text="${boatlocation.locationid}">LOCATION_ID</td>
+					<td th:text="${boatlocation.hullid}">HULL ID</td>
+					<td th:text="${boatlocation.latitude}">LATITUDE</td>
+					<td th:text="${boatlocation.longitude}">LONGITUDE</td>
+					<td th:text="${boatlocation.altitude}">ALTITUDE</td>
+					<td th:text="${boatlocation.heading}">HEADING</td>
+					<td th:text="${boatlocation.timestamp}">TIMESTAMP</td>
+									
+					
+				</tr>
+    </tbody>
+  </table>
+</div>
+ 
+</body>
+</html>

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <style>
+ .myDiv
+{
+    border: 1px solid black;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  margin-right: 0px;
+  margin-left: 305px;
+  background-color: rgb(192, 192, 192);
+  text-align: left;
+  height:550px;
+    width:60%;
+    
+}
+
+ h1 {text-align: center;}
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 60%;
+}
+table.center {
+  margin-left: auto; 
+  margin-right: auto;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+table.center {
+  margin-left: auto; 
+  margin-right: auto;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+body {
+  background-image: url('https://images.unsplash.com/photo-1524522173746-f628baad3644?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1103&q=80.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100% 100%;
+}
+
+.button {
+  background-color: #f4511e;
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-align: center;
+  font-size: 16px;
+  margin: 4px 2px;
+  opacity: 0.6;
+  transition: 0.3s;
+  display: inline-block;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.button:hover {opacity: 1}
+.button {
+  position: absolute;
+  left: 450px;
+  top: 320px;
+}
+.button1 {
+  background-color: #f4511e;
+  border: none;
+  color: white;
+  padding: 16px 25px;
+  text-align: center;
+  font-size: 16px;
+  margin: 4px 1px;
+  opacity: 0.6;
+  transition: 0.3s;
+  display: inline-block;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.button1:hover {opacity: 1}
+.button1 {
+  position: absolute;
+  left: 450px;
+  top: 450px;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: Black;
+}
+
+li {
+  float: center;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover:not(.active) {
+  background-color: #111;
+}
+
+.active {
+  background-color: #5827e0;
+}
+</style>
+<script>
+function goBack() {
+  window.history.back();
+}
+</script>
+</head>
+<body>
+<div class="myDiv">
+  <ul>
+        <li><a class="center" >ENGINE-DETAILS</a></li> 
+        <button onclick="goBack()" >HOME</button>
+        </ul>       
+  <table  class="center">
+  
+    <thead>
+       <tr>
+        <th>HULLID</th>
+        <th>ENGINE ID</th>
+          <th>ENGINE RPM</th>
+        <th>OIL PRESSURE</th>
+          <th>OIL TEMPERATURE</th>
+        <th>ENGINE TEMPERATURE</th>
+         <th>ENGINE RUNTIME</th>
+        <th>ENGINE FUELRATE</th>
+         </tr>
+    </thead>
+    <tbody>
+      <tr th:each="boatengine: ${boatenginelist}">
+					<td th:text="${boatengine.hullid}">HULL ID</td>
+					<td th:text="${boatengine.engineid}">ENGINE ID</td>
+					<td th:text="${boatengine.enginerpm}">ENGINE RPM</td>
+					<td th:text="${boatengine.oilpressure}">OIL PRESSURE</td>
+					<td th:text="${boatengine.oiltemperature}">OIL TEMPERATURE</td>
+					<td th:text="${boatengine.enginetemperature}">ENGINE TEMPERATURE</td>
+					<td th:text="${boatengine.engineruntime}">ENGINE RUNTIME</td>
+					<td th:text="${boatengine.enginefuelrate}">ENGINE FUELRATE</td>
+				</tr>
+    </tbody>
+  </table>
+</div>
+ 
+</body>
+</html>
